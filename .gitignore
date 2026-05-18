@@ -1,0 +1,25 @@
+# Credentials — never commit these
+.env
+*.env
+credentials.json
+token.json
+*_token.json
+*_secret.json
+client_secret.json
+
+# Claude Code local settings
+.claude/
+
+# Generated output
+output/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+
+# OS
+.DS_Store
+Thumbs.db

@@ -1,0 +1,48 @@
+{
+  "_comment": "Copy to rules.json and edit for your real inbox. Everything here is user-tunable; no rules are hardcoded in the agent.",
+
+  "vip_senders": [
+    "example-recruiter@company.com",
+    "@mybank.com"
+  ],
+  "vip_note": "Exact addresses or @domain suffixes. VIP mail is always priority 'Now' regardless of content.",
+
+  "priority_levels": ["Now", "Today", "Later", "Ignore"],
+
+  "categories": [
+    "Personal",
+    "Work / Job Search",
+    "Finance / Bills",
+    "Receipts / Orders",
+    "Newsletters",
+    "Notifications",
+    "Promotions / Spam-ish",
+    "Other"
+  ],
+
+  "auto_organize": {
+    "dry_run": true,
+    "_dry_run_note": "Leave true until you trust each rule. organize.py --live overrides per-run.",
+    "never_archive_categories": ["Personal", "Work / Job Search", "Finance / Bills"],
+    "label_map": {
+      "Receipts / Orders": { "label": "Receipts", "archive": true },
+      "Newsletters":       { "label": "Newsletters", "archive": true },
+      "Notifications":     { "label": "Notifications", "archive": true },
+      "Promotions / Spam-ish": { "label": "LowPriority", "archive": true }
+    },
+    "label_map_note": "Apply label (reversible) and optionally archive (removes from inbox, never deletes). Categories not listed are left untouched in the inbox."
+  },
+
+  "draft_replies": {
+    "draft_for_categories": ["Personal", "Work / Job Search", "Finance / Bills"],
+    "skip_if_no_question": true,
+    "skip_note": "Only draft when the email actually asks something or expects a response. Never auto-send — drafts only.",
+    "max_words": 150
+  },
+
+  "fetch": {
+    "default_since": "1d",
+    "max_emails": 100,
+    "exclude_labels": ["SPAM", "TRASH"]
+  }
+}
